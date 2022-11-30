@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <section>
+        <div class="buttons">
+            <a th:href="@{/static}">Voltar</a>
+        </div>
+        <form th:action="@{/solucoes/salvar}" th:object="${solution}" method="POST">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" name="item" id="item" th:value="${solution.item.id}">
+            <input type="hidden" name="user" id="user" th:value="${solution.user.id}">
+            <div class="form-group">
+                <label th:field="*{reportedIssue}">
+                    Defeito reportado
+                    <input type="text" th:field="*{reportedIssue}">
+                </label>
+            </div>
+            <div class="form-group">
+                <label th:field="*{foundIssue}">
+                    Defeito constatado
+                    <input type="text" th:field="*{foundIssue}">
+                </label>
+            </div>
+            <div class="form-group">
+                <label th:field="*{chassis}">
+                    Chassis
+                    <input type="text" th:field="*{chassis}">
+                </label>
+            </div>
+            <div class="form-group">
+                <label th:field="*{cause}">
+                    Causa
+                    <input type="text" th:field="*{cause}">
+                </label>
+            </div>
+            <div class="form-group">
+                <label th:field="*{techSolution}">
+                    Solução
+                    <input type="text" th:field="*{techSolution}">
+                </label>
+            </div>
+            <input type="submit" value="Salvar">
+        </form>
+    </section>
+</main>
+</body>
+</html>

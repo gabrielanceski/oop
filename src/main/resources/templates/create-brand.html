@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <section>
+        <form th:action="@{/marcas/nova-marca}" th:object="${brand}" method="POST">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input id="name" type="text" th:field="*{name}">
+            </div>
+            <input type="submit" value="Salvar">
+        </form>
+    </section>
+</main>
+</body>
+</html>

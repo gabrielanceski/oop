@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main>
+        <section>
+            <form th:action="@{/solucoes/nova-solucao}" th:object="${solution}" method="POST">
+                <input type="hidden" name="id" id="id" th:field="*{id}">
+                <input type="hidden" name="item" id="item" th:field="${solution.item.id}">
+                <input type="hidden" name="user" id="user" th:field="${solution.user.id}">
+
+                <div class="form-group">
+                    <label for="reportedIssue"></label>
+                    <input type="text" name="reportedIssue" id="reportedIssue" th:value="*{reportedIssue}">
+                </div>
+
+                <input type="submit" value="Salvar">
+            </form>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/main :: head}"/>
+<body>
+<!--    <main>-->
+<!--        <section>-->
+<!--            <h1>Trabalho - POO II</h1>-->
+<!--            <div class="buttons">-->
+<!--                <a th:href="@{/marcas}">Marcas</a>-->
+<!--                <a th:href="@{/itens}">Itens</a>-->
+<!--                <a th:href="@{/solucoes}">Soluções</a>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--    </main>-->
+    <main>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a th:href="@{/marcas}">Marcas</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/itens}">Itens</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/solucoes}">Soluções</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Minha página</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer th:replace="~{fragments/main :: footer}"/>
+</body>
+</html>

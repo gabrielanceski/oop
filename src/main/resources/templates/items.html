@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Itens</title>
+</head>
+<body>
+<main>
+    <section>
+        <div class="buttons">
+            <a th:href="@{/itens/novo-item}">Novo item</a>
+            <a th:href="@{/}">Voltar</a>
+        </div>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Opções</th>
+            </tr>
+            <tr th:each="item : ${itemList}">
+                <td>[[${item.name}]]</td>
+                <td>[[${item.model}]]</td>
+                <td>[[${item.brand.name}]]</td>
+                <td>
+                    <div class="buttons">
+                        <a th:href="@{/solucoes/nova-solucao(itemId=${item.id})}">Nova solução</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+</body>
+</html>
