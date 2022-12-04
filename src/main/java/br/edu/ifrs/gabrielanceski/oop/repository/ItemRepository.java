@@ -17,6 +17,7 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
     @Query("SELECT i FROM Item i WHERE i.brand.id = ?1")
     List<Item> findByBrandId(int brandId);
 
-    @Query("SELECT i FROM Item i WHERE i.brand.name LIKE %?1%")
-    List<Item> findByBrandName(String brandName);
+    @Query("SELECT i FROM Item i WHERE i.name LIKE %?1% AND i.model LIKE %?2%")
+    List<Item> filter(String name, String model);
+
 }

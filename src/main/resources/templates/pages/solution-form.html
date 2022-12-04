@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/main :: head}"/>
+<body>
+<main>
+    <aside th:include="~{fragments/main :: menu}"></aside>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <section class="solutions-section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="title">
+                                <h1>Nova solução</h1>
+                            </div>
+                            <hr>
+                            <div class="actions">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="filters"></div>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="buttons">
+                                            <a class="btn btn-danger" th:href="@{/itens}">Voltar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-box">
+                                <div class="item-data">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="title">
+                                                <h3>Dados do aparelho</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-3">
+                                                <label for="itemName" class="form-label">Item</label>
+                                                <input id="itemName" type="text" class="form-control" th:value="${solution.item.name + ' ' + solution.item.brand.name}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-3">
+                                                <label for="itemModel" class="form-label">Modelo</label>
+                                                <input id="itemModel" type="text" class="form-control" th:value="${solution.item.model}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <form th:action="@{/solucoes/salvar}" th:object="${solution}" method="POST">
+                                    <input type="hidden" th:field="*{id}">
+                                    <input type="hidden" name="item" id="item" th:value="${solution.item.id}">
+                                    <input type="hidden" name="user" id="user" th:value="${solution.user.id}">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="reportedIssue" class="form-label">Defeito reportado</label>
+                                                <input id="reportedIssue" type="text" class="form-control" th:field="*{reportedIssue}" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="foundIssue" class="form-label">Defeito constatado </label>
+                                                <input id="foundIssue" type="text" class="form-control" th:field="*{foundIssue}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-3">
+                                                <label for="chassis" class="form-label">Chassis </label>
+                                                <input id="chassis" type="text" class="form-control" th:field="*{chassis}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-3">
+                                                <label for="status" class="form-label">Status</label>
+                                                <select name="status" id="status" th:field="*{status}" class="form-select"
+                                                        required>
+                                                    <option th:each="status : ${statusList}" th:value="${status}"
+                                                            th:text="${status.getText()}"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="cause" class="form-label">Causa </label>
+                                                <textarea rows="6" id="cause" type="text" class="form-control" th:field="*{cause}"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="techSolution" class="form-label">Solução</label>
+                                                <textarea rows="6" id="techSolution" type="text" class="form-control" th:field="*{techSolution}"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:include="~{fragments/main :: footer}"></footer>
+</body>
+</html>

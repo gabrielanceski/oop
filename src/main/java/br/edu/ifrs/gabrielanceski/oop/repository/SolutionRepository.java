@@ -16,4 +16,6 @@ public interface SolutionRepository extends JpaRepository<Solution, Integer> {
     @Query("SELECT s FROM Solution s WHERE s.item.model = ?1")
     List<Solution> findAllByItemModel(String model);
 
+    @Query("SELECT s FROM Solution s WHERE s.item.model LIKE %?1% AND (s.cause LIKE %?2% OR s.foundIssue LIKE %?2%)")
+    List<Solution> filter(String itemModel, String issueOrCause);
 }

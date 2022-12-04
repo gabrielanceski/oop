@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/main :: head}"/>
+<body>
+    <main>
+        <aside th:include="~{fragments/main :: menu}"></aside>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <section></section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer th:include="~{fragments/main :: footer}"></footer>
+</body>
+</html>

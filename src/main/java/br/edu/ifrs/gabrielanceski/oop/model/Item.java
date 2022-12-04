@@ -14,7 +14,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 64)
     private String name;
 
     @Column(name = "model", nullable = false, unique = true)

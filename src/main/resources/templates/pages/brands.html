@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/main :: head}"/>
+<body>
+<main>
+    <aside th:include="~{fragments/main :: menu}"></aside>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <section class="brands-section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="title">
+                                <h1>Lista de marcas</h1>
+                            </div>
+                            <hr>
+                            <div class="actions">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="filters"></div>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="buttons">
+                                            <a class="btn btn-primary" th:href="@{/marcas/nova-marca}">Nova marca</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Marca</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="brand : ${brandList}">
+                                    <th scope="row" th:text="${brand.id}"></th>
+                                    <td th:text="${brand.name}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:include="~{fragments/main :: footer}"></footer>
+</body>
+</html>

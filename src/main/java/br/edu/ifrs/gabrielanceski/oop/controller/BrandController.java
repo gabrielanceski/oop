@@ -20,14 +20,14 @@ public class BrandController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("brandList", brandService.findAll());
-        return "brands";
+        return "pages/brands";
     }
 
     @GetMapping(value="/nova-marca")
     public String newBrand(Model model) {
         Brand brand = new Brand();
         model.addAttribute("brand", brand);
-        return "create-brand";
+        return "pages/brand-form";
     }
 
     @PostMapping(value = "/nova-marca")

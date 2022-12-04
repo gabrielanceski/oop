@@ -18,8 +18,11 @@ public class Solution {
     private String reportedIssue;
 
     private String foundIssue;
+    @Column(name = "chassis", length = 64)
     private String chassis;
+    @Column(columnDefinition = "TEXT")
     private String cause;
+    @Column(columnDefinition = "TEXT")
     private String techSolution;
     private SolutionStatus status;
 
